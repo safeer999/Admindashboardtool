@@ -86,8 +86,8 @@
               </a>
               <div class="dropdown-menu dropdown-menu-end me-1">
                   <a href="{{ route('profile.customedit') }}" class="dropdown-item">Edit Profile </a>
-                  <a href="#" class="dropdown-item">Change Password</a>
-                  <a href="#" class="dropdown-item">Settings</a>
+                  <a href="{{ route('profile.custompassedit') }}" class="dropdown-item">Change Password</a>
+                  <a href="{{ route('profile.setting') }}" class="dropdown-item">Settings</a>
                   <div class="dropdown-divider"></div>
 
                   <!-- Logout link using form -->

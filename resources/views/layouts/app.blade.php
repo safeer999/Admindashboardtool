@@ -291,6 +291,14 @@
 	<!-- END #app -->
 	
 	<!-- ================== BEGIN core-js ================== -->
+	<script>
+    $(document).ready(function () {
+        $('#cnic').inputmask('99999-9999999-9'); // CNIC format
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script>
+
 	<script src="{{asset('admin6js/vendor.min.js')}}" type="9e3175db7c46b0a00cc73ccd-text/javascript"></script>
 	<script src="{{asset('admin6js/app.min.js')}}" type="9e3175db7c46b0a00cc73ccd-text/javascript"></script>
 	<!-- ================== END core-js ================== -->

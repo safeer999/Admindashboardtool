@@ -34,3 +34,7 @@ require __DIR__.'/auth.php';
  Route::get('/admin/profile', [AdminDashboardController::class, 'adminprofile']);
  //admin custom profile edit 
  Route::get('/admin/custom/profile', [AdminDashboardController::class, 'customedit'])->name('profile.customedit');
+ //admin custom pass edit custompassedit
+Route::get('/admin/custom/edit', [AdminDashboardController::class, 'custompassedit'])->name('profile.custompassedit');
+//admin dashbar setting route
+Route::get('/admin/custom/setting', [AdminDashboardController::class, 'setting'])->name('profile.setting');

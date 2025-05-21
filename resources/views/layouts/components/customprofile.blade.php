@@ -22,80 +22,75 @@
                     <div class="alert alert-success">Profile updated successfully.</div>
                 @endif
 
-                <form method="post" action="{{ route('profile.update') }}">
-                    @csrf
-                    @method('patch')
+              <form method="post" action="{{ route('profile.update') }}">
+    @csrf
+    @method('patch')
 
-                    <fieldset>
-                        <legend class="mb-3">Profile Information</legend>
+    <fieldset>
+        <legend class="mb-3">Profile Information</legend>
 
-                        <div class="mb-3 ">
-                            <label class="form-label" for="name">Name</label>
-                            <input class="form-control" id="name" name="name" type="text"
-                                   value="{{ old('name', $user->name) }}" required autofocus autocomplete="name">
-                            @error('name')
-                                <div class="text-danger mt-1">{{ $message }}</div>
-                            @enderror
-                        </div>
-                       <div class="mb-3">
-    <label class="form-label" for="phone">Phone</label>
-    <input class="form-control" id="phone" name="phone" type="text"
-           value="{{ old('phone', $user->phone) }}" required autocomplete="phone">
-    @error('phone')
-        <div class="text-danger mt-1">{{ $message }}</div>
-    @enderror
-</div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label" for="name">Name</label>
+                <input class="form-control" id="name" name="name" type="text"
+                       value="{{ old('name', $user->name) }}" required autofocus autocomplete="name">
+                @error('name') <div class="text-danger mt-1">{{ $message }}</div> @enderror
+            </div>
 
-<div class="mb-3">
-    <label class="form-label" for="cnic">CNIC</label>
-    <input class="form-control" id="cnic" name="cnic" type="text"
-           value="{{ old('cnic', $user->cnic) }}" required autocomplete="cnic">
-    @error('cnic')
-        <div class="text-danger mt-1">{{ $message }}</div>
-    @enderror
-</div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label" for="phone">Phone</label>
+                <input class="form-control" id="phone" name="phone" type="text"
+                       value="{{ old('phone', $user->phone) }}" required autocomplete="phone">
+                @error('phone') <div class="text-danger mt-1">{{ $message }}</div> @enderror
+            </div>
 
-<div class="mb-3">
-    <label class="form-label" for="address">Address</label>
-    <input class="form-control" id="address" name="address" type="text"
-           value="{{ old('address', $user->address) }}" required autocomplete="address">
-    @error('address')
-        <div class="text-danger mt-1">{{ $message }}</div>
-    @enderror
-</div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label" for="cnic">CNIC</label>
+                <input class="form-control" id="cnic" name="cnic" type="text"
+                       value="{{ old('cnic', $user->cnic) }}" required autocomplete="cnic">
+                @error('cnic') <div class="text-danger mt-1">{{ $message }}</div> @enderror
+            </div>
 
+            <div class="col-md-6 mb-3">
+                <label class="form-label" for="address">Address</label>
+                <input class="form-control" id="address" name="address" type="text"
+                       value="{{ old('address', $user->address) }}" required autocomplete="address">
+                @error('address') <div class="text-danger mt-1">{{ $message }}</div> @enderror
+            </div>
 
-                        <div class="mb-3">
-                            <label class="form-label" for="email">Email</label>
-                            <input class="form-control  " id="email" name="email" type="email "
-                                   value="{{ old('email', $user->email) }}" required autocomplete="username" readonly>
-                            @error('email')
-                                <div class="text-danger mt-1">{{ $message }}</div>
-                            @enderror
+            <div class="col-md-6 mb-3">
+                <label class="form-label" for="email">Email</label>
+                <input class="form-control" id="email" name="email" type="email"
+                       value="{{ old('email', $user->email) }}" required autocomplete="username" readonly>
+                @error('email') <div class="text-danger mt-1">{{ $message }}</div> @enderror
 
-                            @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
-                                <div class="mt-2 text-warning">
-                                    Your email address is unverified.
-                                    <form id="send-verification" method="post" action="{{ route('verification.send') }}" class="d-inline">
-                                        @csrf
-                                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
-                                            Click here to re-send the verification email.
-                                        </button>
-                                    </form>
+                @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
+                    <div class="mt-2 text-warning">
+                        Your email address is unverified.
+                        <form id="send-verification" method="post" action="{{ route('verification.send') }}" class="d-inline">
+                            @csrf
+                            <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
+                                Click here to re-send the verification email.
+                            </button>
+                        </form>
 
-                                    @if (session('status') === 'verification-link-sent')
-                                        <div class="text-success mt-1">
-                                            A new verification link has been sent to your email address.
-                                        </div>
-                                    @endif
-                                </div>
-                            @endif
-                        </div>
+                        @if (session('status') === 'verification-link-sent')
+                            <div class="text-success mt-1">
+                                A new verification link has been sent to your email address.
+                            </div>
+                        @endif
+                    </div>
+                @endif
+            </div>
 
-                        <button type="submit" class="btn btn-primary w-100px me-2">Save</button>
-                        <a href="{{ url()->previous() }}" class="btn btn-secondary w-100px">Cancel</a>
-                    </fieldset>
-                </form>
+            <div class="col-12 d-flex justify-content-between">
+                <a href="{{ url('/dashboard') }}" class="btn btn-secondary w-100px">Cancel</a>
+                <button type="submit" class="btn btn-primary w-100px">Save</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
             </div>
         </div>
     </div>

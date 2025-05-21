@@ -21,5 +21,16 @@ class AdminDashboardController extends Controller
 
         
     }
+      public function custompassedit()
+    {
+      return view('layouts.components.custompasswordedit', [
+        'user' => Auth::user()
+    ]);
+
+}
+public function setting()
+{
+    return view('layouts.components.setting');
+}
 }
 
