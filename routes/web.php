@@ -1,0 +1,36 @@
+<?php
+
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\AdminDashboardController;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+    Route::redirect('/', '/login');
+
+ Route::get('/admin/login', [ProfileController::class, 'adminlogin']);
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');;
+    Route::resource('employees', EmployeeController::class);
+    Route::resource('admins', UserController::class);
+
+
+require __DIR__.'/auth.php';
+
+
+//admin side all routes
+// this html form all file for view form only and copy from here 
+ Route::get('/admin/profile', [AdminDashboardController::class, 'adminprofile']);
+ //admin custom profile edit 
+ Route::get('/admin/custom/profile', [AdminDashboardController::class, 'customedit'])->name('profile.customedit');

@@ -1,0 +1,21 @@
+.active a{
+    color: white!important;
+    background-color: #00ACAC!important;
+}
+.active i{
+    color: white!important;
+}
+.menu-item {
+   font-size: 14px;
+}
+#sidebar > div > div.menu > div.menu-item.d-flex > a > i{
+        color: #00ACAC!important;
+}
+.miniactive .menu-text{
+color:#00ACAC!important;
+}
+
+
+
+
+
