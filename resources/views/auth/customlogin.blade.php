@@ -97,7 +97,7 @@
         @endif --}}
 
         <div class="mb-40px pb-40px text-dark">
-            Not a member yet? Click <a href="register_v3.html" class="text-primary">here</a> to register.
+            Not a member yet? Click <a href="{{}}" class="text-primary">here</a> to register.
         </div>
         <hr class="bg-gray-600 opacity-2" />
         <div class="text-gray-600 text-center mb-0">

@@ -18,6 +18,10 @@ class ProfileController extends Controller
     {
         return view('auth.customlogin');
     }
+     public function adminregister()
+    {
+        return view('auth.customregister');
+    }
     public function edit(Request $request): View
   
     {

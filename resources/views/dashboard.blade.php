@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <p>Welcome, {{ Auth::user()->name ?? "Not Loginned"}}!</p>
+    <p>Welcome, {{ Auth::user()->first_name ?? "Not Loginned"}}!</p>
 
 @endsection
 

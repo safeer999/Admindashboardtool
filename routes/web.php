@@ -10,8 +10,12 @@ Route::get('/', function () {
 });
 
     Route::redirect('/', '/login');
-
+//admin custom login page
  Route::get('/admin/login', [ProfileController::class, 'adminlogin']);
+ //admin custom register page
+ Route::get('/admin/register', [ProfileController::class, 'adminregister']);
+
+
 
 
 Route::middleware('auth')->group(function () {
