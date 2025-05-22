@@ -34,26 +34,31 @@
                 <div class="register-content">
                     <form method="POST" action="{{ route('register') }}" class="fs-13px">
                         @csrf
-
-                        <div class="mb-3">
+                        <div class="row">
+                           <div class="mb-3 col-xl-6">
                             <label class="mb-2">First Name <span class="text-danger">*</span></label>
-                            <input id="first_name" class="form-control fs-13px" type="text" name="first_name" value="{{ old('first_name') }}" required autofocus />
+                            <input id="first_name" class="form-control fs-13px" type="text" name="first_name" value="{{ old('first_name') }}"  autofocus />
                             @error('first_name')
                                 <div class="text-danger mt-2">{{ $message }}</div>
                             @enderror
                         </div>
 
-                        <div class="mb-3">
-                            <label class="mb-2">Last Name <span class="text-danger">*</span></label>
-                            <input id="last_name" class="form-control fs-13px" type="text" name="last_name" value="{{ old('last_name') }}" required />
+                         <div class="mb-3 col-xl-6">
+                            <label class="mb-2">Last Name <span class="text-danger"></span></label>
+                            <input id="last_name" class="form-control fs-13px" type="text" name="last_name" value="{{ old('last_name') }}"  />
                             @error('last_name')
                                 <div class="text-danger mt-2">{{ $message }}</div>
                             @enderror
                         </div>
+                        </div>
+
+                       
+
+                       
 
                         <div class="mb-3">
                             <label class="mb-2">Email <span class="text-danger">*</span></label>
-                            <input id="email" class="form-control fs-13px" type="email" name="email" value="{{ old('email') }}" required autocomplete="username" />
+                            <input id="email" class="form-control fs-13px" type="email" name="email" value="{{ old('email') }}"  autocomplete="username" />
                             @error('email')
                                 <div class="text-danger mt-2">{{ $message }}</div>
                             @enderror
@@ -77,7 +82,7 @@
 
                         <div class="mb-4">
                             <label class="mb-2">Password <span class="text-danger">*</span></label>
-                            <input id="password" class="form-control fs-13px" type="password" name="password" required autocomplete="new-password" />
+                            <input id="password" class="form-control fs-13px" type="password" name="password"  autocomplete="new-password" />
                             @error('password')
                                 <div class="text-danger mt-2">{{ $message }}</div>
                             @enderror
@@ -85,7 +90,7 @@
 
                         <div class="mb-4">
                             <label class="mb-2">Confirm Password <span class="text-danger">*</span></label>
-                            <input id="password_confirmation" class="form-control fs-13px" type="password" name="password_confirmation" required autocomplete="new-password" />
+                            <input id="password_confirmation" class="form-control fs-13px" type="password" name="password_confirmation"  autocomplete="new-password" />
                             @error('password_confirmation')
                                 <div class="text-danger mt-2">{{ $message }}</div>
                             @enderror

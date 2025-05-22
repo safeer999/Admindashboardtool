@@ -34,7 +34,7 @@
                 <div class="register-content">
                     <form method="POST" action="{{ route('register') }}" class="fs-13px">
                         @csrf
-
+                            
                         <div class="mb-3">
                             <label class="mb-2">First Name <span class="text-danger">*</span></label>
                             <input id="first_name" class="form-control fs-13px" type="text" name="first_name" value="{{ old('first_name') }}" required autofocus />
@@ -44,7 +44,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="mb-2">Last Name <span class="text-danger">*</span></label>
+                            <label class="mb-2">Last Name <span class="text-danger"></span></label>
                             <input id="last_name" class="form-control fs-13px" type="text" name="last_name" value="{{ old('last_name') }}" required />
                             @error('last_name')
                                 <div class="text-danger mt-2">{{ $message }}</div>

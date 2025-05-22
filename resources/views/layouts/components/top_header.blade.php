@@ -1,6 +1,6 @@
-  <div id="header" class="app-header">
+  <div id="header" class="app-header ">
       <!-- BEGIN navbar-header -->
-      <div class="navbar-header">
+      <div class="navbar-header ">
 
           <a href="/dashboard" class="navbar-brand"><img src="{{ asset('logo.webp') }}" style="margin-right:5px;"> <span
                   class=""></span> <b class="me-3px"> Backend </b> Admin Panel</a>
@@ -80,11 +80,11 @@
           <div class="navbar-item navbar-user dropdown">
               <a href="#" class="navbar-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown">
                   <span>
-                      <span class="d-none d-md-inline fw-bold">User Name</span>
+                      <h4 class="d-none d-md-inline fw-bold">{{ Auth::user()->first_name ?? "Not Loginned"}}!</h4>
                       <b class="caret"></b>
                   </span>
               </a>
-              <div class="dropdown-menu dropdown-menu-end me-1">
+              <div class="dropdown-menu dropdown-menu-end me-3">
                   <a href="{{ route('profile.customedit') }}" class="dropdown-item">Edit Profile </a>
                   <a href="{{ route('profile.custompassedit') }}" class="dropdown-item">Change Password</a>
                   <a href="{{ route('profile.setting') }}" class="dropdown-item">Settings</a>

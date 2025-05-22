@@ -2,22 +2,34 @@
 
 @section('content')
 
-<h3 class="mb-3">Edit Profile</h3>
+<h2 class="mb-3">Edit Profile</h2>
 
-<div class="row mb-3">
-    <div class="col-xl-6">
-        <div class="panel panel-inverse" data-sortable-id="form-stuff-11">
-            <div class="panel-heading">
-                <h4 class="panel-title">Edit Profile</h4>
+<div class="row mb-3 ">
+    <div class="col-xl-12">
+        <div class="panel  " data-sortable-id="form-stuff-11">
+            <div class="w-100" style="height: 5px; background-color: #00ACAC; margin-bottom: 10px;"></div>
+
+            <div class="panel-heading p-0 m-0">
+ <!-- Top colored line -->
+ <div class="w-100 p-0 m-0">
+
+<!-- Heading -->
+<h4  class="mb-1">Edit Profile</h4>
+
+<!-- Bottom black line -->
+<div class="" style="height: 2px; background-color: #c7bfbf; margin-bottom: 20px;"></div>
+ </div>
+
+
+
+
+              
                 <div class="panel-heading-btn">
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-default" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-success" data-toggle="panel-reload"><i class="fa fa-redo"></i></a>
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
+                   
                 </div>
             </div>
 
-            <div class="panel-body">
+            <div class="panel-body ">
                 @if (session('status') === 'password-updated')
                     <div class="alert alert-success">Password updated successfully.</div>
                 @endif
@@ -26,9 +38,8 @@
                     @csrf
                     @method('put')
 
-                    <fieldset>
-                        <legend class="mb-3">Update Password</legend>
-
+                    <fieldset class="w-50">
+                       
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label class="form-label" for="current_password">Current Password *</label>
@@ -55,7 +66,7 @@
                             </div>
 
                             <div class="col-12 d-flex justify-content-between">
-                                <a href="{{ url('/dashboard') }}" class="btn btn-secondary w-100px">Cancel</a>
+                                <a href="{{ url('/dashboard') }}" class="btn btn-outline-danger w-100px" style="text: red;">Cancel</a>
                                 <button type="submit" class="btn btn-primary w-100px">Save</button>
                             </div>
                         </div>

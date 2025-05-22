@@ -3,14 +3,25 @@
 @section('content')
     <h3 class="mb-3">Edit profile</h3>
 
-    <div class="row mb-3">
-        <div class="col-xl-6">
-            <div class="panel panel-inverse" data-sortable-id="form-stuff-11">
-                <div class="panel-heading">
-                    <h4 class="panel-title">Delete Acccount</h4>
+    <div class="row mb-3 ">
+        <div class="col-12">
+            <div class="panel " data-sortable-id="form-stuff-11">
+               <div class="w-100" style="height: 5px; background-color: #00ACAC; margin-bottom: 10px;"></div>
+                    <div class="panel-heading p-0 m-0">
+                     <!-- Top colored line -->
+ <div class="w-100 p-0 m-0">
+
+<!-- Heading -->
+<h4 class="mb-1">Edit Profile</h4>
+
+<!-- Bottom black line -->
+<div class="" style="height: 2px; background-color: #c7bfbf; margin-bottom: 20px;"></div>
+ </div>
+            
+                 
                 </div>
 
-                <div class="panel-body">
+                <div class="panel-body w-50">
                     <h5 class="mb-3 text-danger">
                         Once your account is deleted, all of its resources and data will be permanently deleted.
                         Please download any information you want to keep.
@@ -37,8 +48,8 @@
                             <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
                         </div>
                         <div class="col-12 d-flex justify-content-between">
-                            <a href="{{ url('/dashboard') }}" class="btn btn-secondary w-100px">Cancel</a>
-                            <button type="submit" class="btn btn-danger">
+                            <a href="{{ url('/dashboard') }}" class="btn btn-outline-danger" style="text-color:red; width:100px">Cancel</a>
+                            <button type="submit" class="btn btn-outline-danger" style="text-color:red">
                                 Delete Account
                             </button>
                         </div>

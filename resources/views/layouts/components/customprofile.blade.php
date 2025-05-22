@@ -2,22 +2,29 @@
 
 @section('content')
 
-<h3 class="mb-3">Edit Profile</h3>
+
+<h2 class="mb-3 ">Edit Profile</h2>
 
 <div class="row mb-3">
-    <div class="col-xl-6">
-        <div class="panel panel-inverse" data-sortable-id="form-stuff-11">
-            <div class="panel-heading">
-                <h4 class="panel-title">Edit Profile</h4>
+    <div class="col-12  ">
+        <div class="panel   " data-sortable-id="form-stuff-11">
+             <div class="w-100" style="height: 5px; background-color: #00ACAC; margin-bottom: 10px;"></div>
+                    <div class="panel-heading p-0 m-0">
+ <!-- Top colored line -->
+ <div class="w-100 p-0 m-0">
+
+<!-- Heading -->
+<h4 class="mb-1">Edit Profile</h4>
+
+<!-- Bottom black line -->
+<div class="" style="height: 2px; background-color: #c7bfbf; margin-bottom: 20px;"></div>
+ </div>
                 <div class="panel-heading-btn">
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-default" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-success" data-toggle="panel-reload"><i class="fa fa-redo"></i></a>
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
+                
                 </div>
             </div>
 
-            <div class="panel-body">
+            <div class="panel-body ">
                 @if (session('status') === 'profile-updated')
                     <div class="alert alert-success">Profile updated successfully.</div>
                 @endif
@@ -26,70 +33,80 @@
     @csrf
     @method('patch')
 
-    <fieldset>
-        <legend class="mb-3">Profile Information</legend>
+<fieldset class="w-50"> <!-- full width -->
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label class="form-label" for="first_name">First Name</label>
-                <input class="form-control" id="first_name" name="first_name" type="text"
-                       value="{{ old('first_name', $user->first_name) }}" required autofocus autocomplete="first_name">
-                @error('first_name') <div class="text-danger mt-1">{{ $message }}</div> @enderror
+
+  <!-- First Row -->
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label class="form-label" for="first_name">First Name</label>
+      <input class="form-control" id="first_name" name="first_name" type="text"
+             value="{{ old('first_name', $user->first_name) }}" required autofocus autocomplete="first_name">
+      @error('first_name') <div class="text-danger mt-1">{{ $message }}</div> @enderror
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label" for="last_name">Last Name</label>
+      <input class="form-control" id="last_name" name="last_name" type="text"
+             value="{{ old('last_name', $user->last_name) }}" required autocomplete="last_name">
+      @error('last_name') <div class="text-danger mt-1">{{ $message }}</div> @enderror
+    </div>
+  </div>
+
+  <!-- Second Row -->
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label class="form-label" for="phone">Phone</label>
+      <input class="form-control" id="phone" name="phone" type="text"
+             value="{{ old('phone', $user->phone) }}" required autocomplete="phone">
+      @error('phone') <div class="text-danger mt-1">{{ $message }}</div> @enderror
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label" for="address">Address</label>
+      <input class="form-control" id="address" name="address" type="text"
+             value="{{ old('address', $user->address) }}" required autocomplete="address">
+      @error('address') <div class="text-danger mt-1">{{ $message }}</div> @enderror
+    </div>
+  </div>
+
+  <!-- Third Row - Full width input aligned left -->
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label class="form-label" for="email">Email</label>
+      <input class="form-control" id="email" name="email" type="email"
+             value="{{ old('email', $user->email) }}" required autocomplete="username" readonly>
+      @error('email') <div class="text-danger mt-1">{{ $message }}</div> @enderror
+
+      @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
+        <div class="mt-2 text-warning">
+          Your email address is unverified.
+          <form id="send-verification" method="post" action="{{ route('verification.send') }}" class="d-inline">
+            @csrf
+            <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
+              Click here to re-send the verification email.
+            </button>
+          </form>
+
+          @if (session('status') === 'verification-link-sent')
+            <div class="text-success mt-1">
+              A new verification link has been sent to your email address.
             </div>
-              <div class="col-md-6 mb-3">
-                <label class="form-label" for="last_name">Last Name</label>
-                <input class="form-control" id="last_name" name="last_name" type="text"
-                       value="{{ old('last_name', $user->last_name) }}" required autofocus autocomplete="last_name">
-                @error('last_name') <div class="text-danger mt-1">{{ $message }}</div> @enderror
-            </div>
-
-            <div class="col-md-6 mb-3">
-                <label class="form-label" for="phone">Phone</label>
-                <input class="form-control" id="phone" name="phone" type="text"
-                       value="{{ old('phone', $user->phone) }}" required autocomplete="phone">
-                @error('phone') <div class="text-danger mt-1">{{ $message }}</div> @enderror
-            </div>
-
-           
-
-            <div class="col-md-6 mb-3">
-                <label class="form-label" for="address">Address</label>
-                <input class="form-control" id="address" name="address" type="text"
-                       value="{{ old('address', $user->address) }}" required autocomplete="address">
-                @error('address') <div class="text-danger mt-1">{{ $message }}</div> @enderror
-            </div>
-
-            <div class="col-md-6 mb-3">
-                <label class="form-label" for="email">Email</label>
-                <input class="form-control" id="email" name="email" type="email"
-                       value="{{ old('email', $user->email) }}" required autocomplete="username" readonly>
-                @error('email') <div class="text-danger mt-1">{{ $message }}</div> @enderror
-
-                @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
-                    <div class="mt-2 text-warning">
-                        Your email address is unverified.
-                        <form id="send-verification" method="post" action="{{ route('verification.send') }}" class="d-inline">
-                            @csrf
-                            <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
-                                Click here to re-send the verification email.
-                            </button>
-                        </form>
-
-                        @if (session('status') === 'verification-link-sent')
-                            <div class="text-success mt-1">
-                                A new verification link has been sent to your email address.
-                            </div>
-                        @endif
-                    </div>
-                @endif
-            </div>
-
-            <div class="col-12 d-flex justify-content-between">
-                <a href="{{ url('/dashboard') }}" class="btn btn-secondary w-100px">Cancel</a>
-                <button type="submit" class="btn btn-primary w-100px">Save</button>
-            </div>
+          @endif
         </div>
-    </fieldset>
+      @endif
+    </div>
+  </div>
+
+  <!-- Buttons -->
+    <div class="col-12 d-flex justify-content-between">
+                                <a href="{{ url('/dashboard') }}" class="btn btn-outline-danger w-100px" style="text: red;">Cancel</a>
+                                <button type="submit" class="btn btn-primary w-100px">Save</button>
+                            </div>
+</fieldset>
+
+
+
 </form>
 
             </div>

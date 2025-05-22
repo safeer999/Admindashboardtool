@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AdminDashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +31,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 //admin dashbar setting route
  Route::get('/admin/custom/setting', [AdminDashboardController::class, 'setting'])->name('profile.setting');
   Route::resource('employees', EmployeeController::class);
+   Route::resource('employees', StudentController::class);
     Route::resource('admins', UserController::class);
 });
 
@@ -38,7 +39,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 // Route::middleware(['auth', 'role:user'])->group(function () {
 //     //Route::get('/', fn() => view('frontend.index'));
 // });
-
 
 
  

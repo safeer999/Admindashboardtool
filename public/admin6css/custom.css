@@ -1,20 +1,51 @@
-.active a{
-    color: white!important;
-    background-color: #00ACAC!important;
+/* Keep your existing hover and active styles */
+.menu-link:hover {
+    background-color: #00ACAC !important;
+    color: #fff !important;
 }
-.active i{
-    color: white!important;
+.active a {
+    color: white !important;
+    background-color: #00ACAC !important;
 }
-.menu-item {
+.active i {
+    color: white !important;
+}.menu-item {
    font-size: 14px;
 }
-#sidebar > div > div.menu > div.menu-item.d-flex > a > i{
-        color: #00ACAC!important;
+.miniactive .menu-text {
+    color: #00ACAC !important;
 }
-.miniactive .menu-text{
-color:#00ACAC!important;
+#sidebar > div > div.menu > div.menu-item.d-flex > a > i {
+    color: #00ACAC !important;
 }
 
+/* ✅ New addition: apply background and white text/icon to parent menu when submenu is active */
+.miniactiveparent > .menu-link {
+    background-color: #00ACAC !important;
+    color: #fff !important;
+}
+.miniactiveparent > .menu-link .menu-text,
+.miniactiveparent > .menu-link .menu-icon i {
+    color: #fff !important;
+}.custom {
+    color: #00ACAC !important;
+}.panel.panel-inverse .panel-heading {
+    background-color: #00ACAC !important;
+    color: rgb(255, 255, 255);  /* to make text readable */
+    height: 1px;
+}/* Base dropdown animation (hidden state) */
+.dropdown-menu {
+  
+  
+ transition: opacity 0.5s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  
+}.dropdown-item{
+    font-size: medium;
+}.dropdown-menu {
+    width: 200px;
+    height: 200px;
+}
 
 
 

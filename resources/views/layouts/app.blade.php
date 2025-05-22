@@ -27,10 +27,10 @@
 
 </head>
 <body>
-	<!-- BEGIN #loader -->
+	<!-- BEGIN #loader 
 	<div id="loader" class="app-loader">
 		<span class="spinner"></span>
-	</div>
+	</div> -->
 	<!-- END #loader -->
 
 	<!-- BEGIN #app -->

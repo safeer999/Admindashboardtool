@@ -273,20 +273,7 @@ var handleDashboardTodolist = function() {
 };
 
 var gritterTriggered = false;
-var handleDashboardGritterNotification = function() {
-	if (gritterTriggered) return;
-	gritterTriggered = true;
-	setTimeout(function() {
-		$.gritter.add({
-			title: 'Welcome back, Admin!',
-			text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus lacus ut lectus rutrum placerat.',
 
-			sticky: true,
-			time: '',
-			class_name: 'my-sticky-class'
-		});
-	}, 1000);
-};
 
 var Dashboard = function () {
 	"use strict";
