@@ -31,10 +31,16 @@
 
         <div class="row">
             <div class="col-md-6 mb-3">
-                <label class="form-label" for="name">Name</label>
-                <input class="form-control" id="name" name="name" type="text"
-                       value="{{ old('name', $user->name) }}" required autofocus autocomplete="name">
-                @error('name') <div class="text-danger mt-1">{{ $message }}</div> @enderror
+                <label class="form-label" for="first_name">First Name</label>
+                <input class="form-control" id="first_name" name="first_name" type="text"
+                       value="{{ old('first_name', $user->first_name) }}" required autofocus autocomplete="first_name">
+                @error('first_name') <div class="text-danger mt-1">{{ $message }}</div> @enderror
+            </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label" for="last_name">Last Name</label>
+                <input class="form-control" id="last_name" name="last_name" type="text"
+                       value="{{ old('last_name', $user->last_name) }}" required autofocus autocomplete="last_name">
+                @error('last_name') <div class="text-danger mt-1">{{ $message }}</div> @enderror
             </div>
 
             <div class="col-md-6 mb-3">
@@ -44,12 +50,7 @@
                 @error('phone') <div class="text-danger mt-1">{{ $message }}</div> @enderror
             </div>
 
-            <div class="col-md-6 mb-3">
-                <label class="form-label" for="cnic">CNIC</label>
-                <input class="form-control" id="cnic" name="cnic" type="text"
-                       value="{{ old('cnic', $user->cnic) }}" required autocomplete="cnic">
-                @error('cnic') <div class="text-danger mt-1">{{ $message }}</div> @enderror
-            </div>
+           
 
             <div class="col-md-6 mb-3">
                 <label class="form-label" for="address">Address</label>

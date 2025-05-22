@@ -31,7 +31,7 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
               'first_name' => 'required|string|max:255',
-              'last_name' => 'required|string|max:255',
+              'last_name' => 'nullable|string|max:255',
               'phone' => 'nullable|string|max:20',
               'address' => 'nullable|string|max:255',
               'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
@@ -52,6 +52,11 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+       // Redirect based on role
+    if ($user->role === 'admin') {
+        return redirect()->intended('/dashboard');
+    }
+
+    return redirect()->intended('/');
     }
 }
