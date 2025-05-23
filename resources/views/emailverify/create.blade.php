@@ -73,7 +73,8 @@
                 <div class="card-body-inner"> <div class="text-center mb-4">
                    <img src="{{asset('custom-image/single-image.webp')}}" alt="" class="image-custom">
                     </div>
-
+<form action="{{route('single.verify')}}" method="POST">
+    @csrf
                     <div class="input-group mb-3">
                         <input type="email" class="form-control form-control-lg" placeholder="Enter email address to verify" aria-label="Email to verify" aria-describedby="verify-email-button">
                     </div>
@@ -83,6 +84,7 @@
                             Verify Email
                         </button>
                     </div>
+                    </form>
                     <div class="text-center my-3">
                         or
                     </div>

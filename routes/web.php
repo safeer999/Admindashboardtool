@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmailVerifierController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SingleEmailVerifyController;
+
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AdminDashboardController;
 use Illuminate\Support\Facades\Route;
@@ -42,11 +44,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 //     //Route::get('/', fn() => view('frontend.index'));
 // });
 
-
- 
-   
-
-
 require __DIR__.'/auth.php';
 
 
@@ -59,3 +56,7 @@ require __DIR__.'/auth.php';
 
  // Public user page (frontend) for everyone
 Route::get('/', [UserController::class, 'index'])->name('frontend.home');
+
+
+//single email verify routes
+Route::get('/single/verify', [SingleEmailVerifyController::class, 'signleverify'])->name('single.verify');
