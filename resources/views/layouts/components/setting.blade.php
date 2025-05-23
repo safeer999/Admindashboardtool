@@ -1,64 +1,81 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="mb-3 px-4">Edit profile</h3>
+    {{-- Main heading for the page, adjusted for small screen padding --}}
+    <h3 class="mb-3 px-3 px-sm-4 px-md-5 px-lg-5 px-xl-4">Edit profile</h3>
 
-    <div class="row mb-3 px-xl-4  ">
-        <div class="col-12 ">
-            <div class="panel " data-sortable-id="form-stuff-11">
+    {{-- Main row container for the panel, with responsive padding --}}
+    <div class="row mb-3 px-3 px-sm-4 px-md-5 px-lg-5 px-xl-4">
+        <div class="col-12"> {{-- Ensures the panel takes full width on all screens --}}
+            <div class="panel" data-sortable-id="form-stuff-11">
+                {{-- Top decorative accent bar --}}
                 <div class="w-100" style="height: 5px; background-color: #00ACAC; margin-bottom: 10px;"></div>
-                <div class="panel-heading  ">
-                    <div class="w-100 ">
 
-                        <!-- Heading -->
-                        <h4 class=" px-4" style="margin-left: 5px">Edit Profile</h4>
-
-                        <!-- Bottom black line -->
+                <div class="panel-heading">
+                    <div class="w-100">
+                        {{-- Panel heading for the "Edit Profile" section --}}
+                        <h4 class="px-4" style="margin-left: 5px">Edit Profile</h4>
+                        {{-- Decorative bottom line for the heading --}}
                         <div class="" style="height: 2px; background-color: #c7bfbf; margin-bottom: 20px;"></div>
                     </div>
-                    <div class="panel-heading-btn">
-
-                    </div>
+                    {{-- Placeholder for panel heading buttons (if any) --}}
+                    <div class="panel-heading-btn"></div>
                 </div>
-                <div class="col-sm-12 col-md-12 col-xl-6 px-xl-5">
+
+                {{-- Column for the form content, controlling width and padding responsively --}}
+                {{-- col-12: Full width on extra-small screens --}}
+                {{-- col-md-10: 10/12 width on medium screens and up, centering content --}}
+                {{-- col-lg-8: 8/12 width on large screens and up, further centering --}}
+                {{-- col-xl-6: 6/12 width on extra-large screens and up, for a narrower form --}}
+                {{-- px-3, px-sm-4, px-md-5, px-lg-5: Responsive horizontal padding inside this column --}}
+                <div class="col-12 col-md-10 col-lg-8 col-xl-6 px-3 px-sm-4 px-md-5 px-lg-5 mb-xl-5">
+                    {{-- Warning message for account deletion --}}
                     <h5 class="mb-3 text-danger">
                         Once your account is deleted, all of its resources and data will be permanently deleted.
                         Please download any information you want to keep.
                     </h5>
 
+                    {{-- Account deletion form --}}
                     <form method="POST" action="{{ route('profile.destroy') }}"
                         onsubmit="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">
                         @csrf
-                        @method('DELETE')
+                        @method('DELETE') {{-- Method spoofing for DELETE request --}}
+
                         <div class="mt-6">
-                            <x-input-label for="password" value="{{ __('Password') }}" class="sr-only" />
+                            {{-- Label for the password input. Assuming x-input-label is a custom Blade component,
+                                 if it renders visually, remove 'sr-only' if you want it visible.
+                                 Otherwise, the Bootstrap label below is sufficient. --}}
+                            {{-- <x-input-label for="password" value="{{ __('Password') }}" class="sr-only" /> --}}
 
                             <div class="col-md-6 mb-3">
-                                <label class="form-label" for="current_password">Current Password *</label>
+                                <label class="form-label" for="password">Current Password *</label>
                                 <input class="form-control" id="password" name="password" type="password"
-                                    autocomplete="current-password">
-                                @error('current_password')
+                                    autocomplete="current-password" required> {{-- Added 'required' for form validation --}}
+
+                                {{-- Display validation error for the 'password' field --}}
+                                @error('password')
                                     <div class="text-danger mt-1">{{ $message }}</div>
                                 @enderror
                             </div>
 
-
-
+                            {{-- This x-input-error is likely for a specific Inertia/Jetstream setup.
+                                 Ensure it aligns with how your application handles errors from userDeletion. --}}
                             <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
                         </div>
-                        <div class="col-12 d-flex justify-content-between mb-xl-5 mt-xl-5 ">
-                            <a href="{{ url('/dashboard') }}" class="btn btn-outline-danger"
-                                style="text-color:red; width:100px">Cancel</a>
-                            <button type="submit" class="btn btn-primary" style="text-color:red">
+
+                        {{-- Action buttons: Cancel and Delete Account --}}
+                        {{-- d-flex justify-content-between: Spaces out the buttons --}}
+                        {{-- mb-xl-5, mt-xl-5: Margin on extra-large screens --}}
+                        {{-- mt-sm-4: Margin on small screens and up --}}
+                        <div class="col-12 d-flex justify-content-between mb-xl-5 mt-xl-5 mt-sm-4">
+                            <a href="{{ url('/dashboard') }}" class="btn btn-outline-danger" style="width:100px">Cancel</a>
+                            <button type="submit" class="btn btn-primary">
                                 Delete Account
                             </button>
                         </div>
-
-
                     </form>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection
