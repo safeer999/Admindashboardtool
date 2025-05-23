@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\EmailVerifierController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AdminDashboardController;
@@ -31,7 +32,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 //admin dashbar setting route
  Route::get('/admin/custom/setting', [AdminDashboardController::class, 'setting'])->name('profile.setting');
   Route::resource('employees', EmployeeController::class);
-   Route::resource('employees', StudentController::class);
+   Route::resource('emailverify', EmailVerifierController::class);
+   Route::resource('students', StudentController::class);
     Route::resource('admins', UserController::class);
 });
 

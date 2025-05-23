@@ -27,49 +27,34 @@
                 <div class="menu-submenu ">
                 </div>
             </div>
-         <div class="menu-item has-sub mb-2 {{ request()->is('employees*') ? 'miniactiveparent' : '' }}">
+        <div class="menu-item has-sub mb-2 {{ request()->is('emailverify*') ? 'miniactiveparent' : '' }}">
     <a href="javascript:;" class="menu-link">
         <div class="menu-icon">
             <i class="fa fa-users"></i>
         </div>
-        <div class="menu-text">Employees</div>
+        <div class="menu-text">Email Verifier</div>
         <div class="menu-caret"></div>
     </a>
     <div class="menu-submenu">
-        <div class="menu-item mb-2 {{ request()->is('employees/create') ? 'miniactive' : '' }}">
-            <a href="{{ url('employees/create') }}" class="menu-link">
-                <div class="menu-text">Add Employee</div>
+        <div class="menu-item mb-2 {{ request()->is('emailverify*') ? 'miniactive' : '' }}">
+            <a href="{{ url('emailverify/create') }}" class="menu-link">
+                <div class="menu-text">Email verifier</div>
             </a>
         </div>
-        <div class="menu-item mb-2 {{ request()->is('employees') ? 'miniactive' : '' }}">
-            <a href="{{ url('employees') }}" class="menu-link">
-                <div class="menu-text">All Employees</div>
+          <div class="menu-item mb-2 {{ request()->is('emailverify*') ? 'miniactive' : '' }}">
+            <a href="{{ url('emailverify') }}" class="menu-link">
+                <div class="menu-text">Result</div>
             </a>
         </div>
     </div>
 </div>
 
-<div class="menu-item has-sub mb-2 {{ request()->is('Student*') ? 'miniactiveparent' : '' }}">
-    <a href="javascript:;" class="menu-link">
-        <div class="menu-icon">
-            <i class="fa fa-users"></i>
-        </div>
-        <div class="menu-text">Student</div>
-        <div class="menu-caret"></div>
-    </a>
-    <div class="menu-submenu">
-        <div class="menu-item mb-2 {{ request()->is('student/create') ? 'miniactive' : '' }}">
-            <a href="{{ url('students/create') }}" class="menu-link">
-                <div class="menu-text">Add Employee</div>
-            </a>
-        </div>
-        <div class="menu-item mb-2 {{ request()->is('students') ? 'miniactive' : '' }}">
-            <a href="{{ url('students') }}" class="menu-link">
-                <div class="menu-text">All Employees</div>
-            </a>
-        </div>
-    </div>
-</div>
+
+
+
+
+
+
 
 
             <!-- BEGIN minify-button -->

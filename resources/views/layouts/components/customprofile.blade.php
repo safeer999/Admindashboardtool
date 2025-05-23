@@ -62,13 +62,12 @@
       @error('phone') <div class="text-danger mt-1">{{ $message }}</div> @enderror
     </div>
 
-    <div class="col-md-6">
-      <label class="form-label" for="address">Address</label>
-      <input class="form-control" id="address" name="address" type="text"
-             value="{{ old('address', $user->address) }}" required autocomplete="address">
-      @error('address') <div class="text-danger mt-1">{{ $message }}</div> @enderror
-    </div>
-  </div>
+   <div class="col-md-6">
+  <label class="form-label" for="address">Address</label>
+  <textarea class="form-control" id="address" name="address" rows="3" required autocomplete="address">{{ old('address', $user->address) }}</textarea>
+  @error('address') <div class="text-danger mt-1">{{ $message }}</div> @enderror
+</div>
+
 
   <!-- Third Row - Full width input aligned left -->
   <div class="row mb-3">
