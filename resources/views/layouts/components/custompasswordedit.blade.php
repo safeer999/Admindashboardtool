@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="mb-3 px-4">Edit Profile</h2>
+   <div class="d-flex justify-content-between align-items-center px-4 mb-3">
+  <h2 class="mb-0">Edit Profile</h2>
+  <span class="text-muted">Profile / Edit Password</span>
+</div>
+
 
     <div class="row mb-3  px-4">
         <div class="col-xl-12">

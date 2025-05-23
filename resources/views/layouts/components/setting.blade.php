@@ -2,7 +2,11 @@
 
 @section('content')
     {{-- Main heading for the page, adjusted for small screen padding --}}
-    <h3 class="mb-3 px-3 px-sm-4 px-md-5 px-lg-5 px-xl-4">Edit profile</h3>
+   <div class="d-flex justify-content-between align-items-center px-4 mb-3">
+  <h2 class="mb-0">Edit Profile</h2>
+  <span class="text-muted">Profile / Delete Account</span>
+</div>
+
 
     {{-- Main row container for the panel, with responsive padding --}}
     <div class="row mb-3 px-3 px-sm-4 px-md-5 px-lg-5 px-xl-4">
@@ -67,7 +71,7 @@
                         {{-- d-flex justify-content-between: Spaces out the buttons --}}
                         {{-- mb-xl-5, mt-xl-5: Margin on extra-large screens --}}
                         {{-- mt-sm-4: Margin on small screens and up --}}
-                        <div class="col-12 d-flex justify-content-between mb-xl-5 mt-xl-5 mt-sm-4">
+                        <div class="col-12 d-flex justify-content-between mb-xl-5 mt-xl-5 mt-sm-8 mb-sm-5 ">
                             <a href="{{ url('/dashboard') }}" class="btn btn-outline-danger" style="width:100px">Cancel</a>
                             <button type="submit" class="btn btn-primary">
                                 Delete Account

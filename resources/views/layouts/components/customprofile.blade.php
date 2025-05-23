@@ -2,8 +2,12 @@
 
 @section('content')
 
+<div class="d-flex justify-content-between align-items-center px-4 mb-3">
+  <h2 class="mb-0">Edit Profile</h2>
+  <span class="text-muted">Profile / Edit Profile</span>
+</div>
 
-    <h2 class="mb-3 px-xl-4 ">Edit Profile</h2>
+
 
 
 
