@@ -5,11 +5,13 @@
 
     <h2 class="mb-3 px-xl-4 ">Edit Profile</h2>
 
+
+
     <div class="row mb-3 px-4">
         <div class="col-md-12 ">
             <div class="panel   " data-sortable-id="form-stuff-11">
                 <div class="w-100" style="height: 5px; background-color: #00ACAC; margin-bottom: 10px;"></div>
-                <div class="panel-heading p-0 m-0">
+                <div class="panel-heading ">
                     <!-- Top colored line -->
                     <div class="w-100 p-0 m-0">
 
@@ -112,7 +114,7 @@
                                     
 
                                     <!-- Buttons -->
-                                    <div class="col-12 d-flex justify-content-between mb-xl-5 mt-xl-5">
+                                    <div class="col-12 d-flex justify-content-between mb-xl-5 mt-xl-5 mt-5">
                                         <a href="{{ url('/dashboard') }}" class="btn btn-outline-danger w-100px"
                                             style="text: red;">Cancel</a>
                                         <button type="submit" class="btn btn-primary w-100px">Save</button>
