@@ -11,19 +11,19 @@
 
 
 
-    <div class="row mb-3 px-4">
+    <div class="row  px-4">
         <div class="col-md-12 ">
             <div class="panel   " data-sortable-id="form-stuff-11">
-                <div class="w-100" style="height: 5px; background-color: #00ACAC; margin-bottom: 10px;"></div>
+                <div class="w-100" style="height: 5px; background-color: #00ACAC; margin-bottom: 3px;"></div>
                 <div class="panel-heading ">
                     <!-- Top colored line -->
-                    <div class="w-100 p-0 m-0">
+                    <div class="w-100">
 
                         <!-- Heading -->
-                        <h4 class="mb-1 px-4">Edit Profile</h4>
+                        <h4 class=" px-4 mb-xl-2 mt-xl-0">Edit Profile</h4>
 
                         <!-- Bottom black line -->
-                        <div class="" style="height: 2px; background-color: #c7bfbf; margin-bottom: 20px;"></div>
+                        <div class="" style="height: 2px; background-color: #c7bfbf; margin-bottom: 20px; "></div>
                     </div>
                     <div class="panel-heading-btn">
 
@@ -32,7 +32,7 @@
 
                 <div class="panel-body ">
                     @if (session('status') === 'profile-updated')
-                        <div class="alert alert-success">Profile updated successfully.</div>
+                        <div style="width: 50%" class="alert alert-success">Profile updated successfully.</div>
                     @endif
 
                     <form method="post" action="{{ route('profile.update') }}">
@@ -76,21 +76,10 @@
                                         @enderror
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <label class="form-label" for="address">Address</label>
-                                        <input class="form-control" id="address" name="address" rows="3" value="{{ old('address', $user->address) }}" required autocomplete="address"></input>
-                                        @error('address')
-                                            <div class="text-danger mt-1">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
-
-                                    <!-- Third Row - Full width input aligned left -->
-                                  
-                                        <div class="col-md-6 mt-xl-3">
+                                     <div class="col-md-6 ">
                                             <label class="form-label" for="email">Email</label>
                                             <input class="form-control" id="email" name="email" type="email"
-                                                value="{{ old('email', $user->email) }}" required autocomplete="username"
+                                                value="{{ old('email', $user->email) }}"  
                                                 readonly>
                                             @error('email')
                                                 <div class="text-danger mt-1">{{ $message }}</div>
@@ -116,6 +105,19 @@
                                             @endif
                                         </div>
                                     
+
+                                    <div class="col-md-6 mt-xl-3">
+                                        <label class="form-label" for="address">Address</label>
+                                        <textarea class="form-control" id="address" name="address" rows="3"  >{{ old('address', $user->address) }}</textarea>
+                                        @error('address')
+                                            <div class="text-danger mt-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+
+                                    <!-- Third Row - Full width input aligned left -->
+                                  
+                                       
 
                                     <!-- Buttons -->
                                     <div class="col-12 d-flex justify-content-between mb-xl-5 mt-xl-5 mt-5">

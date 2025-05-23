@@ -43,10 +43,10 @@
                         <div class="col-sm-12 col-md-12 col-xl-6 px-4">
                             <fieldset class="">
 
-                                <div class="row">
+                                <div class="">
                                     <div class="col-md-6 mb-3">
-                                        <label class="form-label" for="current_password">Current Password *</label>
-                                        <input class="form-control" id="current_password" name="current_password"
+                                        <label class="form-label"  for="current_password">Current Password <span style="color: red">*</span></label>
+                                        <input placeholder="Current Password" class="form-control" id="current_password" name="current_password"
                                             type="password" autocomplete="current-password" required>
                                         @error('current_password')
                                             <div class="text-danger mt-1">{{ $message }}</div>
@@ -54,8 +54,8 @@
                                     </div>
 
                                     <div class="col-md-6 mb-3">
-                                        <label class="form-label" for="password">New Password *</label>
-                                        <input class="form-control" id="password" name="password" type="password"
+                                        <label class="form-label" for="password">New Password <span style="color: red">*</span></label>
+                                        <input placeholder="New Password" class="form-control" id="password" name="password" type="password"
                                             autocomplete="new-password" required>
                                         @error('password')
                                             <div class="text-danger mt-1">{{ $message }}</div>
@@ -63,15 +63,15 @@
                                     </div>
 
                                     <div class="col-md-6 mb-3">
-                                        <label class="form-label" for="password_confirmation">Confirm Password *</label>
-                                        <input class="form-control" id="password_confirmation" name="password_confirmation"
+                                        <label class="form-label" for="password_confirmation">Confirm Password <span style="color: red">*</span></label>
+                                        <input placeholder="Confirm Password" class="form-control" id="password_confirmation" name="password_confirmation"
                                             type="password" autocomplete="new-password" required>
                                         @error('password_confirmation')
                                             <div class="text-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
 
-                                    <div class="col-12 d-flex justify-content-between mb-xl-5 mt-xl-4 mt-sm-5">
+                                    <div class="col-xl-6 d-flex justify-content-between mb-xl-5 mt-xl-4 mt-sm-5">
                                         <a href="{{ url('/dashboard') }}" class="btn btn-outline-danger w-100px"
                                             style="text: red;">Cancel</a>
                                         <button type="submit" class="btn btn-primary w-100px">Save</button>
