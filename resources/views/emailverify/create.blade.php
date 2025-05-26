@@ -73,21 +73,71 @@
                 <div class="card-body-inner"> <div class="text-center mb-4">
                    <img src="{{asset('custom-image/single-image.webp')}}" alt="" class="image-custom">
                     </div>
-<form action="{{route('single.verify')}}" method="POST">
+<form action="{{ route('single.verify') }}" method="POST">
     @csrf
-                    <div class="input-group mb-3">
-                        <input type="email" class="form-control form-control-lg" placeholder="Enter email address to verify" aria-label="Email to verify" aria-describedby="verify-email-button">
-                    </div>
-                    <div class="d-grid gap-2 mb-3">
-                        <button class="btn btn-primary btn-lg" type="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle me-2"><path d="M22 11.08V12a10 10 0 1 1-5.93-8.86"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                            Verify Email
-                        </button>
-                    </div>
-                    </form>
+    <div class="input-group mb-3">
+        <input 
+            type="email" 
+            name="email" 
+            class="form-control form-control-lg @error('email') is-invalid @enderror" 
+            placeholder="Enter email address to verify"  autocomplete="off"
+        
+        >
+        @error('email')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
+    <div class="d-grid gap-2 mb-3">
+      {{-- All Flash Messages --}}
+@if (session('success'))
+    <div class="alert alert-success text-center">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if (session('error'))
+    <div class="alert alert-danger text-center">
+        {{ session('error') }}
+    </div>
+@endif
+
+@if (session('warning'))
+    <div class="alert alert-warning text-center">
+        {{ session('warning') }}
+    </div>
+@endif
+
+@if (session('info'))
+    <div class="alert alert-info text-center">
+        {{ session('info') }}
+    </div>
+@endif
+
+{{-- Validation Errors --}}
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul class="mb-0">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+
+        <button class="btn btn-primary btn-lg" type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle me-2"><path d="M22 11.08V12a10 10 0 1 1-5.93-8.86"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            Verify Email
+        </button>
+    </div>
+</form>
+
                     <div class="text-center my-3">
                         or
                     </div>
+
                     <div class="d-grid gap-2">
                         <button style="background: rgb(228, 230, 235)" class="btn btn-outline-primary btn-lg" type="button" data-bs-toggle="tab" data-bs-target="#bulkEmail" aria-controls="bulkEmail" aria-selected="false">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail me-2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
@@ -101,16 +151,38 @@
                 <div class="card-body-inner"> <div class="mb-3">
                   <img src="{{asset('custom-image/bulk-image.webp')}}" alt="" class="image-custom">      
                     </div>
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label">Upload CSV/TXT file</label>
-                        <input class="form-control" type="file" id="formFile">
+                   <form action="{{ route('bulk.upload.verify') }}" method="POST" enctype="multipart/form-data">
+            @csrf {{-- CSRF token for security --}}
+
+            <div class="mb-3">
+                <label for="email_csv" class="form-label">Upload CSV/Excel file:</label>
+                <input class="form-control @error('email_csv') is-invalid @enderror"
+                       type="file"
+                       id="email_csv" {{-- Corrected ID to match name for label --}}
+                       name="email_csv" {{-- Corrected name to 'email_csv' --}}
+                       accept=".csv, .txt, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                       required>
+                {{-- Error message display --}}
+                @error('email_csv')
+                    <div class="invalid-feedback">
+                        {{ $message }}
                     </div>
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-primary btn-lg" type="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle me-2"><path d="M22 11.08V12a10 10 0 1 1-5.93-8.86"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                            Start Bulk Verification
-                        </button>
-                    </div>
+                @enderror
+            </div>
+
+            <p class="text-muted small">
+            
+                Max file size: 5MB.<br>
+               
+            </p>
+
+            <div class="d-grid gap-2">
+                 <button type="submit" class="btn btn-primary btn-lg mt-3"> {{-- Changed type to submit --}}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle me-2"><path d="M22 11.08V12a10 10 0 1 1-5.93-8.86"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    Start Bulk Verification
+                </button>
+            </div>
+        </form>
                     <div class="mt-4 p-3 bg-light border rounded">
                         <h5>Bulk Verification Results:</h5>
                         <p class="text-muted">Results will appear here after processing.</p>
@@ -121,6 +193,7 @@
         </div>
     </div>
 </div>
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

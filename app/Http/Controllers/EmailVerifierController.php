@@ -42,9 +42,11 @@ class EmailVerifierController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit()
+
     {
-        //
+            dd('trest');
+        return ('dasdfsgds hy ');
     }
 
     /**

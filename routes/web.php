@@ -5,6 +5,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmailVerifierController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SingleEmailVerifyController;
+use App\Http\Controllers\BulkEmailVerifyController;
 
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AdminDashboardController;
@@ -59,4 +60,11 @@ Route::get('/', [UserController::class, 'index'])->name('frontend.home');
 
 
 //single email verify routes
-Route::get('/single/verify', [SingleEmailVerifyController::class, 'signleverify'])->name('single.verify');
+Route::post('/single/verify', [SingleEmailVerifyController::class, 'signleverify'])->name('single.verify');
+// Bulk email file upload
+ Route::post('/bulk-email-verifier/upload', [BulkEmailVerifyController::class, 'handleUploadAndVerify'])->name('bulk.upload.verify');
+ // bulk test index fiel 
+ Route::get('/bulk/index', [BulkEmailVerifyController::class, 'index'])->name('bulk.index');
+ //show live progress baar
+
+Route::get('/bulk-verification/{task}/progress', [BulkEmailVerifyController::class, 'getTaskProgress'])->name('bulk.progress');

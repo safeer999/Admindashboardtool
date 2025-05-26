@@ -43,7 +43,12 @@
         </div>
           <div class="menu-item mb-2 {{ request()->is('emailverify*') ? 'miniactive' : '' }}">
             <a href="{{ url('emailverify') }}" class="menu-link">
-                <div class="menu-text">Result</div>
+                <div class="menu-text">Single Email Result</div>
+            </a>
+        </div>
+        <div class="menu-item mb-2 {{ request()->is('emailverify*') ? 'miniactive' : '' }}">
+            <a href="{{route('bulk.index')}}" class="menu-link">
+                <div class="menu-text">Bulk Email Result</div>
             </a>
         </div>
     </div>

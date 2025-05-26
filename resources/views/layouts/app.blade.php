@@ -301,6 +301,9 @@
 
 	<script src="{{asset('admin6js/vendor.min.js')}}" type="9e3175db7c46b0a00cc73ccd-text/javascript"></script>
 	<script src="{{asset('admin6js/app.min.js')}}" type="9e3175db7c46b0a00cc73ccd-text/javascript"></script>
+	  <script src="{{ asset('path/to/your/jquery.min.js') }}"></script>
+    <script src="{{ asset('path/to/your/bootstrap.bundle.min.js') }}"></script>
+	 @stack('scripts')
 	<!-- ================== END core-js ================== -->
 	
 	<!-- ================== BEGIN page-js ================== -->
