@@ -51,6 +51,8 @@ require __DIR__.'/auth.php';
 //admin side all routes
 // this html form all file for view form only and copy from here 
  Route::get('/admin/profile', [AdminDashboardController::class, 'adminprofile']);
+ //datatable index chekc 
+  Route::get('/admin/datatables', [AdminDashboardController::class, 'admintable']);
 
 
 

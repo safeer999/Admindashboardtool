@@ -32,5 +32,9 @@ public function setting()
 {
     return view('layouts.components.setting');
 }
+public function admintable()
+{
+  return view('layouts.components.tables');
+}
 }
 

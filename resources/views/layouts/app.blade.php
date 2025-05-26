@@ -24,6 +24,17 @@
 	<link href="{{asset('admin6plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css')}}" rel="stylesheet" />
 	<link href="{{asset('admin6plugins/gritter/css/jquery.gritter.css')}}" rel="stylesheet" />
 	<!-- ================== END page-css ================== -->
+	
+	<!-- ================== END core-css ================== -->
+	
+	<!-- ================== BEGIN page-css ================== -->
+		<link href="{{asset('admin2/assets/css/vendor.min.css')}}" rel="stylesheet" />
+	<link href="{{asset('admin2/assets/css/default/app.min.css')}}" rel="stylesheet" />
+	<!-- ================== END core-css ================== -->
+	
+	<!-- ================== BEGIN page-css ================== -->
+	<link href="{{asset('admin2/assets/plugins/datatables.net-bs5/css/dataTables.bootstrap5.min.css')}}" rel="stylesheet" />
+	<link href="{{asset('admin2/assets/plugins/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css')}}" rel="stylesheet" />
 
 </head>
 <body>
@@ -296,6 +307,13 @@
         $('#cnic').inputmask('99999-9999999-9'); // CNIC format
     });
 </script>
+	<script src="{{asset('admin2/assets/plugins/datatables.net/js/dataTables.min.js')}}" type="0120a43a662143d45adf1f99-text/javascript"></script>
+	<script src="{{asset('admin2/assets/plugins/datatables.net-bs5/js/dataTables.bootstrap5.min.js')}}" type="0120a43a662143d45adf1f99-text/javascript"></script>
+	<script src="{{asset('admin2/assets/plugins/datatables.net-responsive/js/dataTables.responsive.min.js')}}" type="0120a43a662143d45adf1f99-text/javascript"></script>
+	<script src="{{asset('admin2/assets/plugins/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js')}}" type="0120a43a662143d45adf1f99-text/javascript"></script>
+	<script src="{{asset('admin2/assets/js/demo/table-manage-default.demo.js')}}" type="0120a43a662143d45adf1f99-text/javascript"></script>
+	<script src="{{asset('admin2/assets/plugins/%40highlightjs/cdn-assets/highlight.min.js')}}" type="0120a43a662143d45adf1f99-text/javascript"></script>
+	<script src="{{asset('admin2/assets/js/demo/render.highlight.js')}}" type="0120a43a662143d45adf1f99-text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script>
 

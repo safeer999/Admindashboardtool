@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 <div id="content" class="app-content">
     <ol class="breadcrumb float-xl-end">
         <li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
