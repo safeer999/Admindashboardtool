@@ -38,11 +38,11 @@
 
 </head>
 <body>
-	<!-- BEGIN #loader 
+	 
 	<div id="loader" class="app-loader">
 		<span class="spinner"></span>
 	</div> -->
-	<!-- END #loader -->
+	
 
 	<!-- BEGIN #app -->
 	<div id="app" class="app app-header-fixed app-sidebar-fixed ">

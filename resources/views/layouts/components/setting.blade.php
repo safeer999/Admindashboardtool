@@ -73,7 +73,7 @@
                         {{-- mt-sm-4: Margin on small screens and up --}}
                         <div class="col-12 d-flex justify-content-between mb-xl-5 mt-xl-5 mt-sm-8 mb-sm-5 ">
                             <a href="{{ url('/dashboard') }}" class="btn btn-outline-danger" style="width:100px">Cancel</a>
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary-custom">
                                 Delete Account
                             </button>
                         </div>

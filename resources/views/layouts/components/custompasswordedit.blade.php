@@ -74,7 +74,7 @@
                                     <div class="col-xl-6 d-flex justify-content-between mb-xl-5 mt-xl-4 mt-sm-5">
                                         <a href="{{ url('/dashboard') }}" class="btn btn-outline-danger w-100px"
                                             style="text: red;">Cancel</a>
-                                        <button type="submit" class="btn btn-primary w-100px">Save</button>
+                                        <button type="submit" class="btn btn-primary-custom w-100px">Save</button>
                                     </div>
                                 </div>
                             </fieldset>

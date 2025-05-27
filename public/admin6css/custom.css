@@ -50,8 +50,8 @@
 .form-label {
     font-size: 15px;
 }
-.btn-primary {
-    background-color: #00acac;
+.btn-primary-custom {
+    background-color: #00acac !important;
 }
 .form-control {
     font-size: 13px;
@@ -60,4 +60,14 @@
     font-size: 15px;
 }.text-muted{
     font-size: 15px;
+}.text-nowrap{
+     font-size: 15px;
+}.btn-info-custom{
+    background-color: #00acac;
+    color: rgb(255, 255, 255);
+}.panel-heading-custom {
+height: 5px;
+    background-color: #00acac;
+   
 }
+    
