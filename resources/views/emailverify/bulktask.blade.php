@@ -71,7 +71,7 @@
                                     </td>
                                     <td id="task-action-{{ $taskItem->id }}">
                                         @if($taskItem->status === 'completed')
-                                            <a href="{{ url('/bulk-verification') }}/{{$taskItem->id}}/results" class="btn btn-info-custom">View Results</a>
+                                          <a href="{{ route('bulk.result', ['id' => $taskItem->id]) }}" class="btn btn-info-custom">View Results</a>
                                         @else
                                             <button class="btn btn-secondary" disabled>Processing...</button>
                                         @endif

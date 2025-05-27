@@ -68,5 +68,6 @@ Route::post('/single/verify', [SingleEmailVerifyController::class, 'signleverify
  // bulk test index fiel 
  Route::get('/bulk/index', [BulkEmailVerifyController::class, 'index'])->name('bulk.index');
  //show live progress baar
-
 Route::get('/bulk-verification/{task}/progress', [BulkEmailVerifyController::class, 'getTaskProgress'])->name('bulk.progress');
+// result show page
+Route::get('/bulk-verification/{id}', [BulkEmailVerifyController::class, 'result'])->name('bulk.result');

@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Models\BulkVerification;
+use App\Models\BulkVerificationResult;
 use App\Jobs\ProcessEmailVerification;
+use Carbon\Carbon;
 use SplFileObject;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
@@ -143,5 +145,107 @@ class BulkEmailVerifyController extends Controller
         ]);
     }
 
-    // ... (other methods) ...
+
+
+
+
+public function result($id)
+{
+    $task = BulkVerification::find($id);
+
+    // Handle case where task is not found
+    if (!$task) {
+        return redirect()->route('tasks.index')->with('error', 'Task not found!');
+    }
+
+    // Fetch all results associated with this task
+    $summaryCounts = BulkVerificationResult::where('bulk_verification_task_id', $task->id)
+                                          ->groupBy('overall_status')
+                                          ->selectRaw('overall_status, count(*) as count')
+                                          ->pluck('count', 'overall_status')
+                                          ->all();
+
+    // Define the desired display order and labels.
+    // The keys here MUST match the exact 'overall_status' values stored in your database (including emojis).
+    $statusMapping = [
+        '✅ Safe' => '✅ Safe',
+        '👥 Role-based' => '👥 Role-based',
+        '🟠 Catch-All' => '🟠 Catch-All',
+        '🔥 Disposable' => '🔥 Disposable',
+        '📥 Inbox Full' => '📥 Inbox Full',
+        '⚠️ Spam Trap' => '⚠️ Spam Trap',
+      
+        '❌ Invalid' => '❌ Invalid',
+        '❓ Unknown' => '❓ Unknown',
+        '🚫 Undeliverable' => '🚫 Undeliverable', // ADDED THIS LINE
+    ];
+
+    // Populate displaySummary ensuring all categories are present, even if count is 0
+    $summary = [];
+    foreach ($statusMapping as $dbStatusWithEmoji => $displayLabelWithEmoji) {
+        $summary[$displayLabelWithEmoji] = $summaryCounts[$dbStatusWithEmoji] ?? 0;
+    }
+
+    // Prepare execution details
+    $startedAt = $task->started_at ? Carbon::parse($task->started_at) : null;
+    $completedAt = $task->completed_at ? Carbon::parse($task->completed_at) : null;
+
+    $duration = 'N/A';
+    if ($startedAt && $completedAt) {
+        $duration = $completedAt->diffInSeconds($startedAt);
+    }
+
+    $execution = [
+        'random' => $task->id,
+        'status' => $task->status,
+        'start_time' => $startedAt ? $startedAt->format('M d, Y H:i') : 'N/A',
+        'end_time' => $completedAt ? $completedAt->format('M d, Y H:i') : 'N/A',
+        'duration_seconds' => $duration,
+        'total_emails' => $task->total_emails, // Total emails from the bulk_verifications task
+    ];
+
+    // Prepare data for download (all email results)
+    $allEmailResults = BulkVerificationResult::where('bulk_verification_task_id', $task->id)->get();
+    $data = $allEmailResults->map(function($result) {
+        return [
+            'email' => $result->email,
+            'status' => $result->overall_status,
+            'syntax' => $result->syntax,
+            'role_based' => $result->role_based,
+            'catch_all' => $result->catch_all,
+            'disposable' => $result->disposable,
+            'spam_trap' => $result->spam_trap,
+            'smtp' => $result->smtp,
+            'ssl' => $result->ssl,
+        ];
+    })->toArray();
+
+    // Colors (these should match the 'displayLabelWithEmoji' values in $statusMapping)
+    $colors = [
+        '✅ Safe' => '#6b9e4a',
+        '👥 Role-based' => '#b1aa3a',
+        '🟠 Catch-All' => '#fbb615',
+        '🔥 Disposable' => '#f9a01b',
+        '📥 Inbox Full' => '#f15a22',
+        '⚠️ Spam Trap' => '#f15a22',
+      
+        '❌ Invalid' => '#e02a2a',
+        '❓ Unknown' => '#b0b0b0',
+        '🚫 Undeliverable' => '#b0b0b0', // ADDED THIS LINE
+    ];
+
+    $fileName = $task->original_file_name; // Variable for compact()
+
+    // Return the view directly using compact()
+    return view('emailverify.result', compact('fileName', 'execution', 'summary', 'data', 'colors'));
 }
+
+
+
+}
+
+
+
+
+
+    

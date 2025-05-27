@@ -20,7 +20,7 @@ class ProfileUpdateRequest extends FormRequest
         'last_name' => ['required', 'string', 'max:255'],
 
       
-       'phone' => ['required', 'regex:/^\+\d{10,15}$/'],
+       'phone' => ['required', 'numeric'],
 
         'address' => ['required', 'string', 'max:255'],
     ];
