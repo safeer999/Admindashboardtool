@@ -4,15 +4,19 @@
 
 <!-- Mirrored from seantheme.com/color-admin/admin/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 May 2025 11:31:33 GMT -->
 <head>
+
+
 	<meta charset="utf-8" />
 	<title>Color Admin | Dashboard V1</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	
 
 
-	<!-- ================== BEGIN core-css ================== -->
+	<!-- ================== BEGIN core-css ==================
+	 -->
 	<link href="{{asset('admin6css/vendor.min.css')}}" rel="stylesheet" />
 	<link href="{{asset('admin6css/default/app.min.css')}}" rel="stylesheet" />
 	<link href="{{asset('admin6css/custom.css')}}" rel="stylesheet" />
@@ -349,6 +353,7 @@
 	<script src="{{asset('admin6plugins/jvectormap-next/jquery-jvectormap.min.js')}}" type="9e3175db7c46b0a00cc73ccd-text/javascript"></script>
 	<script src="{{asset('admin6plugins/jvectormap-content/world-mill.js')}}" type="9e3175db7c46b0a00cc73ccd-text/javascript"></script>
 	<script src="{{asset('admin6plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js')}}" type="9e3175db7c46b0a00cc73ccd-text/javascript"></script>
+	
 	<script src="{{asset('admin6js/demo/dashboard.js')}}" type="9e3175db7c46b0a00cc73ccd-text/javascript"></script>
 	<!-- ================== END page-js ================== -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3Q0VGQKY3" type="9e3175db7c46b0a00cc73ccd-text/javascript"></script>
@@ -358,8 +363,18 @@
 		gtag('js', new Date());
 	
 		gtag('config', 'G-Y3Q0VGQKY3');
+	
 	</script>
-<script src="{{asset('cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js')}}" data-cf-settings="9e3175db7c46b0a00cc73ccd-|49" defer></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"9423439d9fd0a41c","version":"2025.4.0-1-g37f21b1","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"4db8c6ef997743fda032d4f73cfeff63","b":1}' crossorigin="anonymous"></script>
+<!-- Add before closing </body> -->
+<!-- Include CSS -->
+
+
+<!-- Include JS -->
+
+
+
+
+	<script src="{{asset('cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js')}}" data-cf-settings="9e3175db7c46b0a00cc73ccd-|49" defer></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"9423439d9fd0a41c","version":"2025.4.0-1-g37f21b1","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"4db8c6ef997743fda032d4f73cfeff63","b":1}' crossorigin="anonymous"></script>
 </body>
 
 <!-- Mirrored from seantheme.com/color-admin/admin/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 May 2025 11:31:42 GMT -->

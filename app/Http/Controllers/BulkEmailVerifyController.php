@@ -165,6 +165,7 @@ public function result($id)
                                           ->pluck('count', 'overall_status')
                                           ->all();
 
+
     // Define the desired display order and labels.
     // The keys here MUST match the exact 'overall_status' values stored in your database (including emojis).
     $statusMapping = [

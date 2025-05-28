@@ -36,23 +36,33 @@
         <div class="menu-caret"></div>
     </a>
     <div class="menu-submenu">
-        <div class="menu-item mb-2 {{ request()->is('emailverify*') ? 'miniactive' : '' }}">
+        <div class="menu-item mb-2 {{ request()->is('emailverify/create') ? 'miniactive' : '' }}">
             <a href="{{ url('emailverify/create') }}" class="menu-link">
-                <div class="menu-text">Email verifier</div>
+                <div class="menu-icon">
+                    <i class="fa fa-check-circle"></i>
+                </div>
+                <div class="menu-text">Email Verifier</div>
             </a>
         </div>
-          <div class="menu-item mb-2 {{ request()->is('emailverify*') ? 'miniactive' : '' }}">
+        <div class="menu-item mb-2 {{ request()->is('emailverify') && !request()->is('emailverify/create') ? 'miniactive' : '' }}">
             <a href="{{ url('emailverify') }}" class="menu-link">
+                <div class="menu-icon">
+                    <i class="fa fa-envelope-open-text"></i>
+                </div>
                 <div class="menu-text">Single Email Result</div>
             </a>
         </div>
-        <div class="menu-item mb-2 {{ request()->is('emailverify*') ? 'miniactive' : '' }}">
-            <a href="{{route('bulk.index')}}" class="menu-link">
+        <div class="menu-item mb-2 {{ request()->is('bulk*') ? 'miniactive' : '' }}">
+            <a href="{{ route('bulk.index') }}" class="menu-link">
+                <div class="menu-icon">
+                    <i class="fa fa-tasks"></i>
+                </div>
                 <div class="menu-text">Tasks And Results</div>
             </a>
         </div>
     </div>
 </div>
+
 
 
 

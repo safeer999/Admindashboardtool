@@ -138,12 +138,22 @@
                         or
                     </div>
 
-                    <div class="d-grid gap-2">
-                        <button style="background: rgb(228, 230, 235)" class="btn btn-outline-primary btn-lg" type="button" data-bs-toggle="tab" data-bs-target="#bulkEmail" aria-controls="bulkEmail" aria-selected="false">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail me-2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                         Verify Bulk Emails
-                        </button>
-                    </div>
+       <div class="d-grid gap-2">
+    <button 
+        type="button" 
+        class="btn btn-outline-primary btn-lg w-100 rounded" 
+        onclick="document.getElementById('bulk-email-tab').click();">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+             viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+             class="feather feather-mail me-2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        Verify Bulk Emails
+    </button>
+</div>
+
                 </div> </div>
 
             <div class="tab-pane fade" id="bulkEmail" role="tabpanel" aria-labelledby="bulk-email-tab">

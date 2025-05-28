@@ -20,9 +20,20 @@ class ProfileUpdateRequest extends FormRequest
         'last_name' => ['required', 'string', 'max:255'],
 
       
-       'phone' => ['required', 'numeric'],
+     // Validate the hidden full_phone input instead:
+         'phone' => ['required', 'numeric'],
 
         'address' => ['required', 'string', 'max:255'],
+         'password' => [
+                'nullable', // Make it 'required' if password must always be set
+                'string',
+                'min:8',
+                'regex:/[A-Z]/',        // Must contain at least one uppercase letter
+                'regex:/[a-z]/',        // Must contain at least one lowercase letter
+                'regex:/[0-9]/',        // Must contain at least one number
+                'regex:/[!@#$%^&*]/',   // Must contain at least one special character
+                'confirmed'             // Requires password_confirmation field
+            ],
     ];
 }
 }
